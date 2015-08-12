@@ -1,0 +1,16 @@
+/bin/
+/build/
+/.gradle
+/.settings
+.classpath
+.project
+.springBeans
+.idea
+*.iml
+*.ipr
+*.iws
+/out
+/test-output
+/logs
+/src/main/webapp/gui/node_modules
+/src/main/webapp/gui/appbuild
