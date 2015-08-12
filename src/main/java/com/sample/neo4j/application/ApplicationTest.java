@@ -56,15 +56,14 @@ public class ApplicationTest implements CommandLineRunner {
 	public void run(String... args) {
 		
 		Klass klass = new Klass();
-		klass.setName("Mobile");
-		Klass savedKlassNode = klassconnector.create(klass);
+		klass.setName("Shoes");
+		
 
 		Klass klass1 = new Klass();
-		klass1.setName("Shoes");
-		Klass savedKlassNode1 = klassconnector.create(klass1);
+		klass1.setName("Mobiles");
 		
-		System.out.println("klass:    "+savedKlassNode);
-		System.out.println("klass:    "+savedKlassNode1);
+		
+		
 		
 		
 		
@@ -74,7 +73,7 @@ public class ApplicationTest implements CommandLineRunner {
 		
 		
 		Attributes attribute1= new Attributes();
-		attribute1.setName("Type");
+		attribute1.setName("Model");
 		Attributes savedattribute1=attributeConnector.create(attribute1);
 		
 		Attributes attribute2= new Attributes();
@@ -82,6 +81,22 @@ public class ApplicationTest implements CommandLineRunner {
 		Attributes savedattribute2=attributeConnector.create(attribute2);
 		
 		
+		
+		
+		klass.addProperty(savedattribute, "Nike");
+		klass.addProperty(savedattribute1, "Zigtech");
+		klass.addProperty(savedattribute2, "5000");
+		Klass savedKlassNode = klassconnector.create(klass);
+		
+		
+		klass1.addProperty(savedattribute, "Sony");
+		klass1.addProperty(savedattribute1, "Xperia-Z");
+		klass1.addProperty(savedattribute2, "45000");
+		Klass savedKlassNode1 = klassconnector.create(klass1);
+		
+		
+		System.out.println("klass:    "+savedKlassNode);
+		System.out.println("klass:    "+savedKlassNode1);
 		System.out.println("Attribute:    "+savedattribute);
 		System.out.println("Attribute:    "+savedattribute1);
 		System.out.println("Attribute:    "+savedattribute2);
@@ -89,39 +104,6 @@ public class ApplicationTest implements CommandLineRunner {
 		
 		
 		
-		
-		
-		
-		/*Attributes attribute= new Attributes();
-		attribute.setName("Brand");
-		
-		Attributes attribute1= new Attributes();
-		attribute1.setName("Model");
-		Attributes attribute2= new Attributes();
-		attribute2.setName("Price");
-		Set<Attributes> set=klass.getAttributes();
-		set.add(attribute);
-		set.add(attribute1);
-		set.add(attribute2);
-		klass.setAttributes(set);*/
-		
-		
-		
-		/*Attributes attribute3= new Attributes();
-		attribute3.setName("Brand");
-		
-		Attributes attribute4= new Attributes();
-		attribute4.setName("Model");
-		
-		Attributes attribute5= new Attributes();
-		attribute5.setName("Price");
-		
-		Set<Attributes> set1=klass.getAttributes();
-		set1.add(attribute3);
-		set1.add(attribute4);
-		set1.add(attribute5);
-		klass1.setAttributes(set1);
-*/
 		
 		
 		

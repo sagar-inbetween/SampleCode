@@ -6,7 +6,6 @@ import java.util.Set;
 import org.neo4j.graphdb.Direction;
 import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;
-import org.springframework.data.neo4j.annotation.RelatedTo;
 import org.springframework.data.neo4j.annotation.RelatedToVia;
 
 @NodeEntity
@@ -21,20 +20,24 @@ public class Klass
 	
 	private String name;
 	
-	public Set<Attributes> getAttributes() {
-		return attributes;
-	}
-	public void setAttributes(Set<Attributes> attributes) {
-		this.attributes = attributes;
-	}
 	
-	@RelatedTo(type="has",direction=Direction.OUTGOING)
+	
+	/*@RelatedTo(type="has",direction=Direction.OUTGOING)
 	private Set<Attributes> attributes= new HashSet<Attributes>();
+	*/
+	
+	@RelatedToVia(type="has",direction=Direction.INCOMING)
+	Set<RelationshipProperties> properties=new HashSet<RelationshipProperties>();
 	
 	
-	@RelatedToVia(type="has",direction=Direction.OUTGOING)
-	Iterable<RelationshipProperties> properties;
 	
+	public RelationshipProperties addProperty(Attributes attribute,String value)
+	{
+		RelationshipProperties relationshipProperty= new RelationshipProperties(this,attribute,value);
+		
+		properties.add(relationshipProperty);
+		return relationshipProperty; 
+	}
 	
 	
 	

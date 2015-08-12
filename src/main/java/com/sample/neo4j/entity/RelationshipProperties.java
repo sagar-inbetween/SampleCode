@@ -20,5 +20,20 @@ public class RelationshipProperties
 	Attributes attributes;
 	
 	String value;
+	public RelationshipProperties()
+	{
+		
+	}
+
+	public RelationshipProperties(Klass klass, Attributes attributes,String value)
+	{
+		this.klass = klass;
+		this.attributes = attributes;
+		this.value = value;
+	}
+
+	
+	
+	
 
 }
